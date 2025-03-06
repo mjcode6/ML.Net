@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "rwJSTAB5SOQ=",
+  "dgSpecHash": "XRVZQCYTpGc=",
   "success": true,
   "projectFilePath": "C:\\Users\\mjsiv\\Desktop\\ml.Net\\MLRealise\\MLRealise.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mjsiv\\.nuget\\packages\\microsoft.ml\\4.0.2\\microsoft.ml.4.0.2.nupkg.sha512",
     "C:\\Users\\mjsiv\\.nuget\\packages\\microsoft.ml.cpumath\\4.0.2\\microsoft.ml.cpumath.4.0.2.nupkg.sha512",
     "C:\\Users\\mjsiv\\.nuget\\packages\\microsoft.ml.dataview\\4.0.2\\microsoft.ml.dataview.4.0.2.nupkg.sha512",
+    "C:\\Users\\mjsiv\\.nuget\\packages\\microsoft.ml.fasttree\\4.0.2\\microsoft.ml.fasttree.4.0.2.nupkg.sha512",
     "C:\\Users\\mjsiv\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\mjsiv\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
     "C:\\Users\\mjsiv\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
