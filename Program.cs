@@ -11,12 +11,27 @@ public class HousingData
 
     [LoadColumn(2)]
     public float Price { get; set; }
+
+    [LoadColumn(3)]
+    public float Neighborhood {get; set;}
 }
 
 public class HousingPrediction
 {
     [ColumnName("Score")]
     public float Price { get; set; }
+}
+
+public class TransformHousingData{
+    public float SquareFeet {get; set;}
+     public float Bedrooms {get; set;}
+          public float Price {get; set;}
+
+     public  float[] Features {get; set;}
+
+       public  float[] Neighborhood {get; set;}
+
+
 }
 
 public class Program
@@ -30,17 +45,15 @@ public class Program
             hasHeader: true
         );
 
-        string[] featuresColumns = { "SquareFeet", "Bedrooms" };
-        string labelColumn = "Price"; // Corrigé (respecte la casse)
+        var dataPipline = mlContext.Transforms.Conversion.ConvertType("SquareFeet",outputKind: DataKind.Single)
+        .Append(mlContext.Transforms.NormalizeMinMax("SquareFeet"))
+        .Append(mlContext.Transforms.Concatenate("Features", "SquareFeet", "Bedrooms"))
+        .Append(mlContext.Transforms.Categorical.OneHotEncoding("Neighborhood"));
+        var transformeData = dataPipline.Fit(data).Transform(data);
+        var transformedDataEnumerable = mlContext.Data.CreateEnumerable<TransformHousingData>(transformeData, reuseRowObject: false).ToList();
+        foreach(var item in transformedDataEnumerable){
+            Console.WriteLine($"SquareFeet: {item.SquareFeet}, BedRooms: {item.Bedrooms}, Price: {item.Price},Features: [{string.Join(",",item.Features)}],Neiborhood:[{string.Join(",",item.Neighborhood)}]");
+        }
 
-        var pipeline = mlContext.Transforms.Concatenate("Features", featuresColumns)
-            .Append(mlContext.Regression.Trainers.FastTree(labelColumnName: labelColumn));
-
-        var model = pipeline.Fit(data);
-        var prediction = model.Transform(data);
-        var metrics = mlContext.Regression.Evaluate(prediction, labelColumnName: labelColumn);
-
-        Console.WriteLine($"Mean absolute error: {metrics.MeanAbsoluteError}");
-        Console.WriteLine($"Root mean squared error: {metrics.RootMeanSquaredError}");
     }
 }

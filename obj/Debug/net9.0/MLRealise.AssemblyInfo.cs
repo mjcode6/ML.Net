@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MLRealise")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c267750383a32f1c15c4d384ea4b59563ec8a7b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20c87118bf14a6822fd9cd866b056e994c2a6201")]
 [assembly: System.Reflection.AssemblyProductAttribute("MLRealise")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MLRealise")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
